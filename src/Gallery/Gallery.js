@@ -1,12 +1,12 @@
-import React from 'react';
+import {Component} from 'react';
 import axios from 'axios';
-import Loader from './Loader'
-import Card from './Card';
+import Loader from '../Loader'
+import Card from '../Card';
 import './gallery.css';
 // компонент галерии
 // запрашивать информацию при render
 
-class Gallery extends React.Component {
+class Gallery extends Component {
     constructor() {
         super()
         this.state = {
@@ -40,7 +40,7 @@ class Gallery extends React.Component {
             return <Loader />
         } else {
             return (
-                <div>
+                <div className="global_wrapper">
                     <h1>Gallery</h1>
                     <div className="wrapper">
                         {imageList}
