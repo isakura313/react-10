@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Loader from './Loader'
 // компонент галерии
 // запрашивать информацию при render
 
@@ -25,7 +26,7 @@ class Gallery extends React.Component {
     }
     render() {
         if(!this.state.loaded){
-            return <div> Идет загрузка</div>
+            return <Loader/>
         } else{
         return (
             <div>
