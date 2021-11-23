@@ -1,6 +1,6 @@
 import './App.css';
 import HelloWorld  from './HelloWorld';
-import Post from './Post';
+import Post from './Posts/Post';
 import posts from './posts.json';
 
 
