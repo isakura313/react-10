@@ -9,28 +9,31 @@ class Gallery extends React.Component {
     constructor() {
         super()
         this.state = {
-            images: [],
+            photos: [],
             loaded: true
         }
     }
 
     async componentDidMount() {
-        const images = await axios({
+        const photos = await axios({
             method: "GET",
-            url: "https://picsum.photos/v2/list"
+            url: "https://api.pexels.com/v1/curated",
+            headers:{
+                Authorization: '563492ad6f91700001000001c6dc5c5329904df0936ea995dc4d7209'
+            }
         })
 
         this.setState({
-            images:images.data,
+            photos:photos.data.photos,
             loaded: false
         })
     }
     render() {
-        const CardList = this.state.images.map(img=>{
+        const CardList = this.state.photos.map(img=>{
             return <Card
                 key={img.id}
-                img_link ={img.download_url}
-                author = {img.author}
+                img_link ={img.src.small}
+                author = {img.photographer}
                 url = {img.url}
            />
         })
