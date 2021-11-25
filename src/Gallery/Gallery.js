@@ -32,7 +32,7 @@ class Gallery extends React.Component {
         const CardList = this.state.photos.map(img=>{
             return <Card
                 key={img.id}
-                img_link ={img.src.small}
+                img_link ={img.src.large}
                 author = {img.photographer}
                 url = {img.url}
            />
@@ -41,7 +41,8 @@ class Gallery extends React.Component {
             return <div> Идет загрузка</div>
         } else{
         return (
-            <div><h1>Gallery</h1> 
+            <div className='global_wrapper'>
+                <h1>Gallery</h1> 
                 <div className="gallery_wrapper">
                     {CardList}
                 </div>
