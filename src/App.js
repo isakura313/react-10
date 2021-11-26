@@ -1,18 +1,42 @@
 import './App.css';
-import HelloWorld  from './HelloWorld';
-import Post from './Posts/Post';
-import posts from './posts.json';
+import Posts from './Posts/Posts';
+import Gallery from './Gallery';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
-  const post_list = posts.map(post=>{
-    return <Post key={post.id}  title={post.title} body={post.body}/>
-  })
   return (
-    <div className="App">
-      {post_list}
-      <HelloWorld text="Привет" color="red"/>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/blog">blog</Link>
+            </li>
+            <li>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Routes> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+          <Route path="/blog" element={<Posts/>}>
+          </Route>
+          <Route path="/gallery" element={<Gallery/>}>
+          </Route>
+          {/* <Route path="/gallery">
+            <Gallery />
+          </Route> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
