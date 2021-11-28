@@ -2,7 +2,7 @@ import './App.css';
 import Posts from './Posts/Posts';
 import Gallery from './Gallery';
 import {
-  BrowserRouter as Router,
+  BrowserRouter as Router, 
   Routes,
   Route,
   Link
