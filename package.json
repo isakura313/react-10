@@ -1,7 +1,7 @@
 {
   "name": "todo",
   "version": "0.1.0",
-  "homepage": "http://localhost:4252/",
+  "homepage": "https://isakura313.gitlab.io/blog/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",

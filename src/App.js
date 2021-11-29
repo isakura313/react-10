@@ -1,6 +1,7 @@
 import './App.css';
 import Posts from './Posts/Posts';
 import Gallery from './Gallery';
+import Home from "./Home"
 import {
   BrowserRouter as Router, 
   Routes,
@@ -15,12 +16,16 @@ function App() {
       <div>
         <nav>
           <ul>
+          <li>
+              <Link to="/">Home</Link>
+            </li>
             <li>
               <Link to="/blog">blog</Link>
             </li>
             <li>
               <Link to="/gallery">Gallery</Link>
             </li>
+  
           </ul>
         </nav>
 
@@ -30,6 +35,8 @@ function App() {
           <Route path="/blog" element={<Posts/>}>
           </Route>
           <Route path="/gallery" element={<Gallery/>}>
+          </Route>
+          <Route path="/" element={<Home/>}>
           </Route>
           {/* <Route path="/gallery">
             <Gallery />
