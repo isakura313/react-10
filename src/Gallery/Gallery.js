@@ -5,6 +5,7 @@ import './Gallery.sass'
 import key from '../key';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import Paginate from '../Paginate';
 // компонент галерии
 // запрашивать информацию при render
 
@@ -21,6 +22,12 @@ class Gallery extends React.Component {
             perPage: 30
         }
     }
+    updatePage=(index)=>{
+        this.setState({
+            paginateNumber:index
+        })
+    }
+
 
     async componentDidMount() {
         const images = await axios({
@@ -31,6 +38,23 @@ class Gallery extends React.Component {
             }
         })
         console.log(images)
+        const lightImages = images.data.photos.map(img=>{
+            return img.src.original
+        })
+        this.setState({
+            images:images.data.photos,
+            loaded: false,
+            lightImages
+        })
+    }
+    async componentDidUpdate(){
+        const images = await axios({
+            method: "GET",
+            url: `https://api.pexels.com/v1/curated?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
+            headers:  {
+                'Authorization': key
+            }
+        })
         const lightImages = images.data.photos.map(img=>{
             return img.src.original
         })
@@ -80,6 +104,11 @@ class Gallery extends React.Component {
           />
         )}
                 </div>
+                <Paginate 
+                    number={6} 
+                    selectNumber = {this.state.paginateNumber}
+                    handleClick = {this.updatePage}
+                    />
             </div>
         )
     }
