@@ -2,6 +2,7 @@ import Post from "./Post.js"
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import './posts.sass';
+import {Outlet} from 'react-router-dom';
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -18,6 +19,7 @@ function Posts() {
 
     const post_list = posts.map(post=>{
       return <Post key={post.id}  
+                  id={post.id}
                   title={post.title} 
                   body={post.content}
                   likes= {post.likes}
@@ -26,6 +28,7 @@ function Posts() {
     return (
       <div className="posts_wrapper">
         {post_list}
+        <Outlet/>
       </div>
     );
   }

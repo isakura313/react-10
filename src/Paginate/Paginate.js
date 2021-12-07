@@ -3,7 +3,6 @@ import "./Paginate.sass"
 
 function Paginate(props){
     function handleClick(index, e){
-        alert(index)
         props.handleClick(index);
     }
     const paginateButtons = []
