@@ -21,8 +21,8 @@ function Navigation() {
         <Route path="/blog" element={<Posts />}></Route>
         <Route path="/gallery" element={<Gallery />}></Route>
         <Route path="posts" element={<Posts />}>
-</Route>
-  <Route path="/posts/:id" element={<Article />} />
+      </Route>
+      <Route path="blog/post/:id" element={<Article />} />
       </Routes>
     </Router>
   );
