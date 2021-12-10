@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function Navigation() {
   return (
     <Router>
-      <header>
+      <header className='py-4'>
         <nav>
           <Link to="/home"> Домой</Link>
           <Link to="/blog">Блог</Link>
