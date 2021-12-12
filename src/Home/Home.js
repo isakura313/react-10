@@ -2,7 +2,7 @@ import './Home.sass'
 
 function Home(){
     return(
-        <div className='home__wrap'>
+        <div className='home__wrap text-primary'>
             <h2> Добро пожаловать</h2>
             <h5> Сервис для статей и просмотра картинок</h5>
         </div>
