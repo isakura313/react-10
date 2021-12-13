@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Article.sass";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function Article() {
   const { id } = useParams();
@@ -19,9 +20,19 @@ function Article() {
     getInfo();
   }, []);
   return (
-    <div className="article_wrapper">
-      <ReactMarkdown children={`${articleInfo.title} ${articleInfo.content}`} />
-      <div> ❤️ {articleInfo.likes}</div>
+    <div className="min-h-screen w-1/2 mx-auto pt-20 article_wrapper ">
+      <h1 className="text-lg text-center font-medium pb-6">
+        {articleInfo.title}
+      </h1>
+      <ReactMarkdown
+        children={articleInfo.content}
+        remarkPlugins={[remarkGfm]}
+        className="isolate container border-2 border-solid border-black p-6"
+      />
+      <div>
+        {" "}
+        ❤️ {articleInfo.likes} {articleInfo.author}
+      </div>
     </div>
   );
 }
