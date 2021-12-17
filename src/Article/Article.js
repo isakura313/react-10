@@ -27,7 +27,7 @@ function Article() {
       <ReactMarkdown
         children={articleInfo.content}
         remarkPlugins={[remarkGfm]}
-        className="isolate container border-2 border-solid border-black p-6"
+        className="prose dark:prose-invert max-w-none"
       />
       <div>
         {" "}
