@@ -20,15 +20,17 @@ function Article() {
     getInfo();
   }, []);
   return (
-    <div className="min-h-screen w-1/2 mx-auto pt-20 article_wrapper ">
+    <div className="min-h-screen pt-20 article_wrapper ">
       <h1 className="text-lg text-center font-medium pb-6">
         {articleInfo.title}
       </h1>
+      <article className='prose prose-indigo w-5/6  mx-auto'>
       <ReactMarkdown
         children={articleInfo.content}
         remarkPlugins={[remarkGfm]}
-        className="isolate container border-2 border-solid border-black p-6"
+        className="isolate container p-6"
       />
+          </article>
       <div>
         {" "}
         ❤️ {articleInfo.likes} {articleInfo.author}

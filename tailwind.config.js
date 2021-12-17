@@ -9,5 +9,7 @@ module.exports = {
       'white': '#e0f2f1'
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
