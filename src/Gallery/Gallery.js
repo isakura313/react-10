@@ -32,17 +32,20 @@ class Gallery extends React.Component {
     async componentDidMount() {
         const images = await axios({
             method: "GET",
-            url: `https://api.pexels.com/v1/curated?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
+            url: `https://api.unsplash.com/photos?page=${this.state.paginateNumber}&per_page=${this.state.perPage}`,
             headers:  {
                 'Authorization': key
             }
         })
         console.log(images)
-        const lightImages = images.data.photos.map(img=>{
-            return img.src.original
+        const lightImages = images.data.map(img=>{
+            return img.urls.full
         })
+        // const imagesData = images.data.map(img=>{
+        //     return img.urls.small
+        // })
         this.setState({
-            images:images.data.photos,
+            images:images.data,
             loaded: false,
             lightImages
         })
@@ -50,16 +53,16 @@ class Gallery extends React.Component {
     async componentDidUpdate(){
         const images = await axios({
             method: "GET",
-            url: `https://api.pexels.com/v1/curated?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
+            url: `https://api.unsplash.com/photos?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
             headers:  {
                 'Authorization': key
             }
         })
         const lightImages = images.data.photos.map(img=>{
-            return img.src.original
+            return img.urls.full
         })
         this.setState({
-            images:images.data.photos,
+            images:images.data,
             loaded: false,
             lightImages
         })
@@ -70,11 +73,11 @@ class Gallery extends React.Component {
             return <Card
                 handleClick ={()=>this.setState({isOpen: true, photoIndex:index})}
                 key = {img.id}
-                src = {img.src.large}
-                author = {img.author}
-                url = {img.url}
-                photographer_url = {img.photographer_url}
-                photographer = {img.photographer}
+                src = {img.urls.regular}
+                author = {img.user.username}
+                url = {img.links.self}
+                photographer_url = {img.user.portfolio_url}
+                photographer = {img.user.username}
            />
         })
         if(this.state.loaded){
