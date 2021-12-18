@@ -53,12 +53,12 @@ class Gallery extends React.Component {
     async componentDidUpdate(){
         const images = await axios({
             method: "GET",
-            url: `https://api.unsplash.com/photos?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
+            url: `https://api.unsplash.com/photos?page=${this.state.paginateNumber}&per_page=${this.state.perPage}`,
             headers:  {
                 'Authorization': key
             }
         })
-        const lightImages = images.data.photos.map(img=>{
+        const lightImages = images.data.map(img=>{
             return img.urls.full
         })
         this.setState({
