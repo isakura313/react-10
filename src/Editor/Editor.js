@@ -16,7 +16,7 @@ function Editor() {
   const postData = async () => {
     await axios({
       method: "POST",
-      url: "http://localhost:5000/posts",
+      url: `${process.env.REACT_APP_API}/posts`,
       data: {
         title: valueName,
         content: valueContent,
