@@ -1,12 +1,11 @@
-# stage1 as builder
 FROM node:14.16-alpine as builder
 
 # copy the package.json to install dependencies
 COPY package.json package-lock.json ./
 
 # Install the dependencies and make the folder
-RUN npm i
-
+RUN npm i && mkdir /blog && mv ./node_modules ./blog
+RUN npm i craco -g
 WORKDIR /blog
 
 COPY . .

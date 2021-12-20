@@ -1,7 +1,6 @@
 import Post from "./Post.js";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./posts.sass";
 import { Outlet } from "react-router-dom";
 
 function Posts() {
