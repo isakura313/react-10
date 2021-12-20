@@ -9,7 +9,7 @@ function Posts() {
     const getData = async () => {
       const req = await axios({
         method: "GET",
-        url: "http://localhost:5000/posts",
+        url: `${process.env.REACT_APP_API}/posts`,
       });
       setPosts(req.data);
     };

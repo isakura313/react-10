@@ -8,12 +8,12 @@ import remarkGfm from "remark-gfm";
 function Article() {
   const { id } = useParams();
   const [articleInfo, setArticleInfo] = useState({});
-  console.log(`http://localhost:5000/posts/${id}`);
+  console.log(`${process.env.REACT_APP_API}/posts/${id}`);
   useEffect(() => {
     const getInfo = async () => {
       const res = await axios({
         method: "GET",
-        url: `http://localhost:5000/posts/${id}`,
+        url: `${process.env.REACT_APP_API}/posts/${id}`,
       });
       setArticleInfo(res.data);
     };
