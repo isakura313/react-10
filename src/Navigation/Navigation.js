@@ -11,7 +11,7 @@ function Navigation() {
     <Router>
       <header className="bg-lightGrey">
         <nav>
-          <Link to="/home" className="text-primary">
+          <Link to="/" className="text-primary">
             {" "}
             Домой
           </Link>
@@ -27,7 +27,7 @@ function Navigation() {
         </nav>
       </header>
       <Routes>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/blog" element={<Posts />}></Route>
         <Route path="/blog/:id" element={<Article />} />
         <Route path="/gallery" element={<Gallery />}></Route>
