@@ -1,7 +1,6 @@
 {
   "name": "todo",
   "version": "0.1.0",
-  "homepage": "https://isakura313.gitlab.io/blog/",
   "private": true,
   "dependencies": {
     "7": "^0.0.1",
