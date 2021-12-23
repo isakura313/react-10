@@ -4,7 +4,9 @@ import Home from "../Home";
 import Gallery from "../Gallery";
 import Article from "../Article";
 import Editor from "../Editor";
+import tableAdmin from "../table_admin/Table_admin";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import TableAdmin from "../table_admin";
 
 function Navigation() {
   return (
@@ -24,6 +26,9 @@ function Navigation() {
           <Link to="/editor" className="text-primary">
             Редактор
           </Link>
+          <Link to="/tableAdmin" className="text-primary">
+            Админ
+          </Link>
         </nav>
       </header>
       <Routes>
@@ -32,6 +37,7 @@ function Navigation() {
         <Route path="/blog/:id" element={<Article />} />
         <Route path="/gallery" element={<Gallery />}></Route>
         <Route path="/editor" element={<Editor />}></Route>
+        <Route path="/tableAdmin" element={<TableAdmin />}></Route>
       </Routes>
     </Router>
   );
